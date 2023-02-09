@@ -1,0 +1,64 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--dark-text-color);
+}
+gi .link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--transition-dur-and-func);
+}
+
+.list {
+  list-style: none;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hidden {
+  display: none !important;
+}
+
+body.team-modal-open {
+  height: 100vh;
+  overflow-y: hidden;
+  // padding-right: 15px; /* Avoid width reflow */
+}
+
+body.movie-modal-open {
+  height: 100vh;
+  overflow-y: hidden;
+  // padding-right: 15px; /* Avoid width reflow */
+}

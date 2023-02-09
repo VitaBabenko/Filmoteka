@@ -1,0 +1,82 @@
+.footer {
+  padding-top: 29px;
+  padding-bottom: 29px;
+
+  background-color: var(--footer-bgc-color);
+}
+
+.footer__wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  //   column-gap: 10px;
+}
+
+.footer__icon {
+  width: 14px;
+  height: 12.75px;
+}
+
+.footer__text {
+  display: flex;
+  text-align: center;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.15;
+
+  color: var(--footer-text-color);
+}
+
+.footer__link {
+  color: var(--footer-text-color);
+}
+
+.footer__btn {
+  outline: none;
+  border: none;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19;
+  text-decoration: underline;
+  text-transform: none;
+
+  color: var(--footer-text-color);
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
+}
+
+/////// прижимаю футер вниз
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.gallery__page {
+  flex: 1 0 auto;
+}
+
+.library-contaner {
+  flex: 1 0 auto;
+}
+
+.no-data {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+
+//backdrop-modal

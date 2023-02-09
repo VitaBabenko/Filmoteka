@@ -1,0 +1,23 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+
+@import './utils/variables';
+@import './utils/visually-hidden';
+
+@import './base/common';
+@import './base/container';
+
+@import './components/btn';
+@import './components/no-data-to-show';
+@import './components/social-networks';
+@import './components/team-backdrop';
+@import './components/team-modal';
+
+@import './components/loader';
+
+@import './components/modal-movie';
+
+@import './layout/header';
+@import './layout/gallery';
+@import './layout/pagination';
+@import './layout/footer';
+@import './layout/card';

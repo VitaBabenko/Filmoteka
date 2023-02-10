@@ -4,7 +4,7 @@ import { renderMarkupSearch } from './markupSearch';
 import { cleanHtml } from './markupSearch';
 import { hideLoader, showLoader } from './loader';
 import pagination from './pagination';
-import { movieContainer, sadEror, paginationDiv } from './refs';
+import { movieContainer, paginationDiv } from './refs';
 import { getMovies } from './renderingGalleryMarkup';
 import { observer } from './buttonTop';
 

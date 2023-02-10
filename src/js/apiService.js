@@ -16,12 +16,6 @@ class ApiService {
 
       localStorage.setItem('searchSource', 'byTrend');
       localStorage.setItem('currentFilms', JSON.stringify(response));
-      //  console.log('fetchTrendFilms');
-      //////////////////пушу для тестування
-      // localStorage.setItem(
-      //   'queuedFilms', // queuedFilms  watchedFilms
-      //   JSON.stringify(response.data.results)
-      // );
 
       return response;
     } catch (error) {

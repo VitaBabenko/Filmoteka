@@ -89,7 +89,7 @@ export function cleanHtml() {
 
 async function onBtnBack(evt) {
   try {
-    const btnBack = evt.target.classList.contains('btn_modal__back');
+    const btnBack = evt.target.classList.contains('btn_modal__close-trailer');
     if (btnBack) {
       setTimeout(
         () => (modalGallery.innerHTML = renderMarkupModal(arrId)),

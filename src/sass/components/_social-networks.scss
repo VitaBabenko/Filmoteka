@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   column-gap: 10px;
-
   padding-bottom: 8px;
 }
 
@@ -17,7 +16,6 @@
   box-shadow: 0px 0px 0px5px rgba(255, 255, 255, 0.86);
   -webkit-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.86);
   -moz-box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0.86);
-
   transition: background-color var(--transition-dur-and-func),
     box-shadow var(--transition-dur-and-func);
 
@@ -38,7 +36,6 @@
 
 .social-networks__icon {
   fill: var(--dark-color);
-
   transition: fill var(--transition-dur-and-func);
 
   .social-networks__link:hover &,

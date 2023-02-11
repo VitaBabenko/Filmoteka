@@ -2,80 +2,58 @@
   padding-top: 40px;
   padding-bottom: 64px;
   padding-bottom: 76px;
-
   background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.56),
       rgba(0, 0, 0, 0.56)
     ),
     url('../images/header-main-mob.jpg');
-
   background-color: var(--dark-color);
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
-}
 
-@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
-  screen and (min-resolution: 192dpi) and (max-width: 767px),
-  screen and (min-resolution: 2dppx) and (max-width: 767px) {
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url('../images/header-main-mob@2x.jpg');
+  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+    screen and (min-resolution: 192dpi) and (max-width: 767px),
+    screen and (min-resolution: 2dppx) and (max-width: 767px) {
+    background-image: linear-gradient(to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)),
+      url('../images/header-main-mob@2x.jpg'); 
   }
-}
 
-@media screen and (min-width: 768px) {
-  .header {
+  @media screen and (min-width: 768px) {
     padding-bottom: 60px;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
       url('../images/header-main-tab.jpg');
   }
-}
 
-@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
   screen and (min-resolution: 192dpi) and (min-width: 768px),
   screen and (min-resolution: 2dppx) and (min-width: 768px) {
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
       url('../images/header-main-tab@2x.jpg');
   }
-}
 
-@media screen and (min-width: 1280px) {
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+  @media screen and (min-width: 1280px) {
+    background-image: linear-gradient(to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
       url('../images/header-main-des.jpg');
   }
-}
 
-@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
   screen and (min-resolution: 192dpi) and (min-width: 1280px),
   screen and (min-resolution: 2dppx) and (min-width: 1280px) {
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
       url('../images/header-main-des@2x.jpg');
-  }
+  } 
 }
 
 .logo {
@@ -93,10 +71,8 @@
   @media screen and (min-width: 768px) {
     display: inline-block;
     margin-left: 8px;
-
     font-size: 30px;
     line-height: 1.17;
-
     color: var(--light-color);
   }
 
@@ -109,9 +85,7 @@
   display: block;
   width: 24px;
   height: 24px;
-
   line-height: 0;
-
   fill: var(--light-color);
 }
 
@@ -139,7 +113,6 @@
   position: relative;
   padding-top: 5px;
   padding-bottom: 5px;
-
   color: var(--light-color);
   font-family: 'Roboto';
   line-height: 1.17;
@@ -156,7 +129,6 @@
   position: absolute;
   left: 0;
   bottom: 0px;
-
   display: inline-block;
   width: 100%;
   height: 3px;
@@ -165,15 +137,12 @@
 
 .header__form {
   position: relative;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 16px;
-
   max-width: 280px;
   width: 100%;
 
@@ -201,7 +170,6 @@
   border-bottom: 0.5px solid var(--light-color);
   color: var(--light-color);
   outline: none;
-
   font-weight: 400;
   font-size: 14px;
   line-height: 1.15px;
@@ -224,7 +192,6 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.15px;
-
   color: var(--light-color);
 }
 
@@ -233,28 +200,23 @@
   position: absolute;
   bottom: -7px;
   right: 0;
-
   border: none;
   line-height: 0;
   background-color: transparent;
-
   cursor: pointer;
 }
 
 .header__search-icon {
   width: 12px;
   height: 12px;
-
   fill: var(--light-color);
 }
 
 .eror__wrap {
   position: relative;
   text-align: center;
-
   margin-right: auto;
   margin-left: auto;
-
   max-width: 280px;
   width: 100%;
 
@@ -270,16 +232,13 @@
 
 .header__error {
   position: absolute;
-
   font-weight: 400;
   font-size: 14px;
   line-height: 1.15;
   color: var(--eror-text-color);
- 
   visibility: visible;
   opacity: 1;
   pointer-events: visible;
-
   transition: transform var(--transition-dur-and-func),
     visibility var(--transition-dur-and-func),
     opacity var(--transition-dur-and-func);
@@ -292,6 +251,7 @@
     width: 393px;
   }
 }
+
 .header__error_hidden {
   opacity: 0;
   visibility: hidden;
@@ -310,75 +270,54 @@
 
 .header_library {
   padding-bottom: 62px;
-
   background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.56),
       rgba(0, 0, 0, 0.56)
     ),
     url('../images/header-lib-mob.jpg');
-}
 
-@media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
+  @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px),
   screen and (min-resolution: 192dpi) and (max-width: 767px),
   screen and (min-resolution: 2dppx) and (max-width: 767px) {
-  .header_library {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right,
+              rgba(0, 0, 0, 0.56),
+              rgba(0, 0, 0, 0.56)),
       url('../images/header-lib-mob@2x.jpg');
   }
-}
 
-@media screen and (min-width: 768px) {
-  .header_library {
+  @media screen and (min-width: 768px) {
     padding-bottom: 60px;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
       url('../images/header-lib-tab.jpg');
   }
-}
 
-@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
   screen and (min-resolution: 192dpi) and (min-width: 768px),
   screen and (min-resolution: 2dppx) and (min-width: 768px) {
-  .header_library {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
       url('../images/header-lib-tab@2x.jpg');
   }
-}
 
-@media screen and (min-width: 1280px) {
-  .header_library {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+  @media screen and (min-width: 1280px) {
+    background-image: linear-gradient(to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
       url('../images/header-lib-des.jpg');
   }
-}
 
-@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+  @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
   screen and (min-resolution: 192dpi) and (min-width: 1280px),
   screen and (min-resolution: 2dppx) and (min-width: 1280px) {
-  .header_library {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)),
       url('../images/header-lib-des@2x.jpg');
-  }
+  }    
 }
 
 .header__btns {
@@ -404,7 +343,6 @@
 .header__btn {
   width: 100%;
   max-width: 130px;
-
   height: 44px;
 
   @media screen and (min-width: 320px) {

@@ -5,11 +5,8 @@
   z-index: 100;
   width: 100%;
   height: 100%;
-
   overflow-x: hidden;
-
   background: rgba(0, 0, 0, 0.25);
-
   transform: scale(1);
   visibility: visible;
   opacity: 1;
@@ -23,6 +20,7 @@
     opacity: 0;
     pointer-events: none;
   }
+
   @media screen and (min-width: 1280px) {
     padding: 0;
   }
@@ -30,11 +28,6 @@
 
 .movie_modal {
   position: relative;
-  @media screen and (max-width: 767px) {
-    max-width: 280px;
-    margin: 40 auto;
-  }
-
   background-color: var(--light-color);
   padding-top: 48px;
   padding-left: 20px;
@@ -43,21 +36,37 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+
+  @media screen and (max-width: 767px) {
+    max-width: 280px;
+    margin: 40 auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 40px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 704px;
+    padding: 40px 36px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 806px;
+    padding: 40px 12px;
+  }
 }
 
 .movie-modal__close-btn {
   position: absolute;
   top: 8px;
   right: 8px;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 40px;
   height: 40px;
   padding: 0;
-
   border-radius: 50%;
   background-color: transparent;
   border: none;
@@ -68,6 +77,7 @@
   stroke: var(--dark-color);
   fill: var(--dark-color);
   transition: fill var(--transition-dur-and-func);
+
   &:hover,
   &:focus {
     stroke: var(--accent-color);
@@ -79,6 +89,16 @@
   max-width: 240px;
   width: 100%;
   margin-bottom: 20px;
+  
+  @media screen and (min-width: 768px) {
+    max-width: 264px;
+    object-fit: cover;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 370px;
+  }
 }
 
 .movie_modal_title {
@@ -101,6 +121,7 @@
 .modal_table {
   width: 100%;
   margin-bottom: 20px;
+
   @media screen and (max-width: 229px) {
     font-size: 10px;
     text-align: center;
@@ -133,6 +154,14 @@
 
 .about-text {
   line-height: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 265px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 391px;
+  }
 }
 
 .modal_btn_list {
@@ -141,10 +170,15 @@
   gap: 20px;
   align-items: center;
   margin-bottom: 10px;
+  
   @media screen and (max-width: 229px) {
     display: flex;
     flex-direction: column;
     text-align: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    gap: 15px;
   }
 }
 
@@ -156,11 +190,21 @@
   border: 1px solid #000000;
   cursor: pointer;
   transition: 250ms;
+
   &:hover,
   &:focus {
     border-color: var(--accent-color);
   }
+
+  @media screen and (min-width: 768px) {
+    width: 125px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 188px;
+  }
 }
+
 .current {
   background-color: var(--accent-color);
   color: #fff;
@@ -168,6 +212,14 @@
 
 .btn_trailer {
   width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 264px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 391px;
+  }
 }
 
 .movie_trailer {
@@ -176,7 +228,7 @@
   width: 100%;
 }
 
-.btn_modal__back {
+.btn_modal__close-trailer {
   position: absolute;
   top: 15px;
   right: 19px;
@@ -186,28 +238,37 @@
   padding: 2px 5px;
   width: 70px;
   height: 30px;
-
   border-radius: 5px;
   border: 1px solid var(--dark-color);
   background-color: var(--light-color);
-
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   font-size: 10px;
   line-height: 1;
   text-transform: uppercase;
-
   color: var(--dark-color);
-
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-}
 
-.btn_modal__back:hover,
-.btn_modal__back:focus {
-  filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
-  border-color: var(--accent-color);
+  &:hover,
+  &:focus {
+    filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
+    border-color: var(--accent-color);
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 7px;
+    right: 20px;
+    width: 83px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 12px;
+    font-size: 12px;
+  }
 }
 
 .error__trailer {
@@ -215,83 +276,17 @@
   text-transform: uppercase;
 }
 
-@media screen and (min-width: 768px) {
-  .movie_modal {
-    padding: 40px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 704px;
-    padding: 40px 36px;
-  }
+.movie_modal_gallery {
 
-  .movie_modal_gallery {
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: row;
     gap: 68px;
   }
 
-  .modal_img {
-    max-width: 264px;
-    object-fit: cover;
-    margin-bottom: 0;
-  }
-
-  .about-text {
-    width: 265px;
-  }
-
-  .modal_btn_list {
-    gap: 15px;
-  }
-
-  .btn_modal {
-    width: 125px;
-  }
-
-  .btn_trailer {
-    width: 264px;
-  }
-
-  .btn_modal__back {
-    top: 7px;
-    right: 20px;
-    width: 83px;
-    height: 30px;
-    font-size: 12px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .movie_modal {
-    max-width: 806px;
-    padding: 40px 12px;
-  }
-
-  .movie_modal_gallery {
+  @media screen and (min-width: 1280px) {
     gap: 16px;
   }
-
-  .modal_img {
-    max-width: 370px;
-  }
-
-  .about-text {
-    width: 391px;
-  }
-
-  .btn_modal {
-    width: 188px;
-  }
-
-  .btn_trailer {
-    width: 391px;
-  }
-
-  .btn_modal__back {
-    right: 12px;
-    font-size: 12px;
-    }
 }
 
 .trailer__clear {

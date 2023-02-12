@@ -15,6 +15,7 @@ const buttonTop = document.querySelector('.js-button-top');
 const movieContainer = document.querySelector('.js-movies-list');
 const clicksMovie = document.querySelector('.gallery__list');
 const paginationDiv = document.querySelector('.js-pagination');
+const paginationList = document.querySelector('.pagination__list');
 
 const openModalMovie = document.querySelector('[data-movie-modal]');
 const closeModalMovieBtn = document.querySelector('[data-movie-modal-close]');
@@ -27,7 +28,7 @@ const modalTeam = document.querySelector('[data-team-modal]');
 export {
     header, homeBtn, myLibraryBtn, headerForm, errorSearch, errorText,
     headerBtns, btnWatched, btnQueue, libraryData,
-    guard, buttonTop, movieContainer, clicksMovie, paginationDiv,
+    guard, buttonTop, movieContainer, clicksMovie, paginationDiv, paginationList,
     openModalMovie, closeModalMovieBtn, modalGallery,
     openModalTeamBtn, closeModalTeamBtn, modalTeam
 }

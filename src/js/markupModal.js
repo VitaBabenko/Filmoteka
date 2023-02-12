@@ -1,10 +1,8 @@
-import { findGenres } from './findGenres';
-import { getYear } from './getYear';
-import { findGenres, isEmptyGanres } from './findGenres';
+import { findGenres, isEmptyGenres } from './findGenres';
 import noPoster from '../images/no-poster.jpg';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 
-export function renderMarkupModal(movies) {
+function renderMarkupModal(movies) {
   const { genre_ids } = movies;
   const imgUrl = movies.poster_path
     ? `${IMG_URL + movies.poster_path}`
@@ -13,16 +11,14 @@ export function renderMarkupModal(movies) {
   const genersLocalStore = parseGenres.data.genres;
   let finalGenres = [];
   findGenres(genre_ids, genersLocalStore, finalGenres);
-  isEmptyGanres(finalGenres);
+  isEmptyGenres(finalGenres);
   let watchedBtn = '';
   let queueBtn = '';
 
   try {
-    const isInWatchedList = localStorage.getItem('watchedFilms'); //watchedFilms
-    // console.log('isInWatchedList: ', isInWatchedList);
+    const isInWatchedList = localStorage.getItem('watchedFilms');
     if (isInWatchedList) {
       if (isInWatchedList.length) {
-        // console.log('(isInWatchedList.typeOf.: ', typeOf.isInWatchedList);
         const isInArray = JSON.parse(isInWatchedList).find(
           movie => movie.id === movies.id
         );
@@ -36,16 +32,12 @@ export function renderMarkupModal(movies) {
       watchedBtn = `<button class="btn_modal btn_modal_watched" data-ttt="${movies.id}">ADD TO WATCHED</button>`;
     }
 
-    // console.log(watchedBtn);
-
-    const isInQueuedList = localStorage.getItem('queuedFilms'); //watchedFilms
-    // console.log('isInQueuedList: ', isInQueuedList);
+    const isInQueuedList = localStorage.getItem('queuedFilms');
     if (isInQueuedList) {
       if (isInQueuedList.length) {
         const isInArray = JSON.parse(isInQueuedList).find(
           movie => movie.id === movies.id
         );
-        //   console.log(isInArray);
         if (isInArray) {
           queueBtn = `<button class="btn_modal btn_modal_queued current" data-ttt="${movies.id}">DELETE FROM QUEUE</button>`;
         } else {
@@ -95,3 +87,5 @@ export function renderMarkupModal(movies) {
             </div>`;
   return mark;
 }
+
+export { renderMarkupModal };

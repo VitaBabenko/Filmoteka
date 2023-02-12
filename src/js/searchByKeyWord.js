@@ -1,20 +1,16 @@
-import { headerForm, errorText, guard, buttonTop } from './refs';
-import apiservice from './apiService';
-import { renderMarkupSearch } from './markupSearch';
-import { cleanHtml } from './markupSearch';
+import { headerForm, errorText, guard, buttonTop, movieContainer, paginationDiv } from './refs';
+import { apiservice } from './apiService';
+import { renderMarkupSearch, cleanHtml } from './markupSearch';
 import { hideLoader, showLoader } from './loader';
-import pagination from './pagination';
-import { movieContainer, paginationDiv } from './refs';
+import { pagination } from './pagination';
 import { getMovies } from './renderingGalleryMarkup';
 import { observer } from './buttonTop';
 
-
-export async function onHeaderFormClick(evt) {
+async function onHeaderFormClick(evt) {
   try {
     evt.preventDefault();
     apiservice.query = evt.currentTarget.keyword.value;
     const keyWord = evt.currentTarget.keyword.value;
-    // console.log('keyWord: ', keyWord);
     localStorage.setItem('keyWord', keyWord);
     cleanHtml();
     paginationDiv.classList.add('visually-hidden');
@@ -23,12 +19,10 @@ export async function onHeaderFormClick(evt) {
     if (!apiservice.query.trim()) {
       buttonTop.style.display = 'none';
       errorText.classList.remove('header__error_hidden');
-      // sadEror.classList.remove('header__error_hidden');
       document.body.classList.add('sad__smile');
       paginationDiv.classList.add('visually-hidden');
       setTimeout(() => {
         errorText.classList.add('header__error_hidden');
-        // sadEror.classList.add('header__error_hidden');
         document.body.classList.remove('sad__smile');
         paginationDiv.classList.remove('visually-hidden');
 
@@ -45,15 +39,12 @@ export async function onHeaderFormClick(evt) {
     hideLoader();
 
     if (results.length === 0) {
-      // paginationDiv.classList.add('visually-hidden');
       buttonTop.style.display = 'none';
       errorText.classList.remove('header__error_hidden');
-      // sadEror.classList.remove('header__error_hidden');
       document.body.classList.add('sad__smile');
 
       setTimeout(() => {
         errorText.classList.add('header__error_hidden');
-        // sadEror.classList.add('header__error_hidden');
         document.body.classList.remove('sad__smile');
         paginationDiv.classList.remove('visually-hidden');
 
@@ -73,3 +64,5 @@ export async function onHeaderFormClick(evt) {
     console.log(err);
   }
 }
+
+export { onHeaderFormClick };

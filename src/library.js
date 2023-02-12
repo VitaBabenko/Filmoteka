@@ -1,59 +1,23 @@
-// import './sass/index.scss';
-
-// import './js/apiService';
-// import './js/base-config';
-// import './js/findGenres';
-// import './js/getYear';
-// import './js/libraryMarkup';
-// import './js/libraryModal';
-// import './js/loader';
-// import './js/markupModal';
-// import './js/markupSearch';
-// import './js/modal-btns-library';
-import './js/library-header-btns.js';
-import './js/modal-movie';
-// import './js/pagination';
-// import './js/refs';
-// import './js/renderingGalleryMarkup';
-// import './js/searchByKeyWord';
-// import './js/team-modal';
-// import './js/trailer';
-////////////////////////////////////////////////////////////////////////////////////////////
-import './js/libraryMarkup';
-// import './js/libraryModal';
-import './js/markupModal';
-
-import { openModalMovie } from './js/refs';
+import { clicksMovie, closeModalMovieBtn, openModalMovie, modalGallery, openModalTeamBtn, btnWatched, btnQueue, paginationDiv } from './js/refs';
+import { oneToggle, closeBtn, clickBackdropCloseModal, onBtnBack } from './js/modal-movie';
+import { onBtnTrailer } from './js/trailer';
 import { onClickModal } from './js/modal-btns-library';
+import { toggleTeamModal } from './js/team-modal';
+import { onBtnWatchedClick, onBtnQueueClick } from './js/library-header-btns';
+import { onLibrPaginationClick } from './js/libraryMarkup';
+
+btnWatched.addEventListener('click', onBtnWatchedClick);
+btnQueue.addEventListener('click', onBtnQueueClick);
+
+clicksMovie.addEventListener('click', oneToggle);
+closeModalMovieBtn.addEventListener('click', closeBtn);
+openModalMovie.addEventListener('click', clickBackdropCloseModal);
+modalGallery.addEventListener('click', onBtnBack);
+
 openModalMovie.addEventListener('click', onClickModal);
 
-/// ////////////footer-modal
-import { openModalTeamBtn, buttonTop } from './js/refs';
-import { toggleTeamModal } from './js/team-modal';
-
-openModalTeamBtn.addEventListener('click', toggleTeamModal);
-//////////////// footer-modal
-
-import { modalGallery } from './js/refs';
-import { onBtnTrailer } from './js/trailer';
-import { cleanHtmlTrailer } from './js/trailer';
 modalGallery.addEventListener('click', onBtnTrailer);
 
-// import { modalGallery } from './js/refs';
-// modalGallery.addEventListener('click', onBtnTrailer);
+openModalTeamBtn.addEventListener('click', toggleTeamModal);
 
-import { clicksMovie } from './js/refs';
-// import { openModalMovie } from './js/refs';
-// import { closeModalMovieBtn } from './js/refs';
-// import {
-//   oneToggle,
-//   keyPressEscCloseMovieModal,
-//   closeBtn,
-// } from './js/modal-movie';
-// clicksMovie.addEventListener('click', oneToggle);
-// closeModalMovieBtn.addEventListener('click', closeBtn);
-// // openModalMovie.addEventListener('click', clickBackdropCloseTeamModal);
-// import { libraryData } from './js/refs';
-// libraryData.addEventListener('click', oneToggle);
-// closeModalMovieBtn.addEventListener('click', closeBtn);
-// openModalMovie.addEventListener('click', clickBackdropCloseTeamModal);
+paginationDiv.addEventListener('click', onLibrPaginationClick);

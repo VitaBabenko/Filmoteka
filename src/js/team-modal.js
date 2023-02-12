@@ -1,8 +1,6 @@
-import { closeModalTeamBtn, modalTeam, openModalTeamBtn } from './refs';
+import { closeModalTeamBtn, modalTeam } from './refs';
 
-// openModalTeamBtn.addEventListener('click', toggleTeamModal);
-
-export function toggleTeamModal(e) {
+function toggleTeamModal(e) {
   document.body.classList.toggle('team-modal-open');
   modalTeam.classList.toggle('is-hidden');
 
@@ -19,19 +17,18 @@ export function toggleTeamModal(e) {
   }
 }
 
-export function clickBackdropCloseTeamModal(e) {
+function clickBackdropCloseTeamModal(e) {
   if (e.target === e.currentTarget) {
     toggleTeamModal();
   }
 }
-export function keyPressEscCloseTeamModal(e) {
+
+function keyPressEscCloseTeamModal(e) {
   const ESC_KEY_CODE = `Escape`;
 
   if (e.code === ESC_KEY_CODE) {
-    // document.removeEventListener('keydown', keyPressEscCloseTeamModal);
-
-    // document.body.classList.toggle('team-modal-open');
-    // modalTeam.classList.toggle('is-hidden');
     toggleTeamModal();
   }
 }
+
+export { toggleTeamModal, clickBackdropCloseTeamModal, keyPressEscCloseTeamModal };

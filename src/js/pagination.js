@@ -1,24 +1,17 @@
-import apiservice from './apiService';
+import { apiservice } from './apiService';
 import { renderMarkupSearch } from './markupSearch';
-import { getMovies } from './renderingGalleryMarkup';
-import { movieContainer } from './refs';
-
+import { movieContainer, paginationList, paginationDiv } from './refs';
 import { onLibrPaginationClick } from './libraryMarkup';
 
-const paginationList = document.querySelector('.pagination__list'); //
-const paginationBox = document.querySelector('.pagination');
-paginationBox.addEventListener('click', clickFunction);
-paginationBox.removeEventListener('click', onLibrPaginationClick);
-
-// const apiService = new ApiService();
+paginationDiv.addEventListener('click', clickFunction);
+paginationDiv.removeEventListener('click', onLibrPaginationClick);
 
 let currentPage;
 
-export default async function pagination(currentP, totalPages) {
+async function pagination(currentP, totalPages) {
   currentPage = currentP;
 
   let murkup = '';
-
   let beforeTwoPage = currentPage - 2;
   let beforePage = currentPage - 1;
   let afterPage = currentPage + 1;
@@ -71,7 +64,7 @@ async function clickFunction(e) {
     return;
   }
 
-  const searchToSource = localStorage.getItem('searchSource'); // , 'byTrend'  byKeyWord
+  const searchToSource = localStorage.getItem('searchSource');
 
   if (e.target.textContent === '►') {
     apiservice.page = currentPage;
@@ -86,9 +79,7 @@ async function clickFunction(e) {
 
     movieContainer.innerHTML = renderMarkupSearch(results);
     pagination(response.data.page, response.data.total_pages);
-    // window.scrollBy(0, -window.pageYOffset + 270);
     window.scrollTo(0, 230);
-    // window.scrollBy(0, -1000);
     return;
   }
 
@@ -104,8 +95,6 @@ async function clickFunction(e) {
     const results = response.data.results;
     movieContainer.innerHTML = renderMarkupSearch(results);
     pagination(response.data.page, response.data.total_pages);
-    // window.scrollBy(0, -1000);
-    // window.scrollBy(0, -window.pageYOffset + 270);
     window.scrollTo(0, 230);
     return;
   }
@@ -123,10 +112,9 @@ async function clickFunction(e) {
     movieContainer.innerHTML = renderMarkupSearch(results);
 
     pagination(response.data.page, response.data.total_pages);
-    // window.scrollBy(0, -1000);
-    // console.log(window.pageYOffset);
-    // window.scrollBy(0, -window.pageYOffset + 270);
     window.scrollTo(0, 230);
     return;
   }
 }
+
+export { pagination, clickFunction };

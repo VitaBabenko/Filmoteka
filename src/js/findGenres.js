@@ -8,16 +8,16 @@ function findGenres(genersArr, localArr, arr) {
   });
 }
 
-function isEmptyGanres(arr) {
+function isEmptyGenres(arr) {
   if (arr.length === 0) {
     arr.push(['No data']);
   }
 }
 
-function isMoreThenTwoGanres(arr) {
+function isMoreThenTwoGenres(arr) {
   if (arr.length > 3) {
     arr.splice(2, arr.length - 2, 'Other');
   }
 }
 
-export { findGenres, isEmptyGanres, isMoreThenTwoGanres };
+export { findGenres, isEmptyGenres, isMoreThenTwoGenres };

@@ -6,7 +6,7 @@ const options = {
     threshold: 1.0
 }
 
-export const observer = new IntersectionObserver(onScrollBtn, options);
+const observer = new IntersectionObserver(onScrollBtn, options);
 
 function onScrollBtn(entries, observer) {
     entries.forEach((entry) => {
@@ -22,3 +22,5 @@ buttonTop.addEventListener('click', onBtnTop);
 function onBtnTop() {
     buttonTop.style.display = 'none';
 }
+
+export { observer };

@@ -1,33 +1,20 @@
-import apiservice from './apiService';
-import { libraryData } from './refs';
+import { apiservice } from './apiService';
+import { libraryData, paginationList } from './refs';
 import { renderMarkupSearch } from './markupSearch';
-// import { openModalMovie } from './refs';
-
-const LibPaginationList = document.querySelector('.pagination__list');
-const LibPaginationBox = document.querySelector('.pagination');
-// LibPaginationBox.addEventListener('click', clickFunction);
-LibPaginationBox.addEventListener('click', onLibrPaginationClick);
 
 let totalPages;
 let curentPageToRender;
 
-export function libraryListRender(curentPage, totalPage) {
-  LibPaginationList.innerHTML = '';
-  // apiservice.resetPage();
-  // console.log('curentPageToRender ДО: ', curentPageToRender);
+function libraryListRender(curentPage, totalPage) {
+  paginationList.innerHTML = '';
   let curentPageToRender = curentPage || apiservice.page;
-  // console.log('curentPage: ', curentPage);
-  // console.log('apiservice.page: ', apiservice.page);
-  // console.log('curentPageToRender ПІСЛЯ: ', curentPageToRender);
   let totalPages = totalPage || 1;
   let watchedList;
-
   let libBlockToShow = localStorage.getItem('sourceForModal');
-  // console.log('libBlockToShow: ', libBlockToShow);
 
   try {
     if (libBlockToShow === 'watchedFilms') {
-      watchedList = localStorage.getItem('watchedFilms'); //watchedFilms
+      watchedList = localStorage.getItem('watchedFilms');
     } else {
       watchedList = localStorage.getItem('queuedFilms');
     }
@@ -65,12 +52,7 @@ export function libraryListRender(curentPage, totalPage) {
           sliced_array.push(watchedListToRender.slice(i, i + array_size));
         }
 
-        // totalPages = sliced_array.length;
-        // librPagination(curentPageToRender, totalPages);
-
         try {
-          // sliced_array[curentPageToRender - 1];
-          // console.log('sliced_array[curentPageToRender - 1]: ', sliced_array[curentPageToRender - 1]);
           if (!sliced_array[curentPageToRender - 1]) {
             totalPages = sliced_array.length - 1;
             librPagination(curentPageToRender - 1, totalPages - 1);
@@ -91,7 +73,7 @@ export function libraryListRender(curentPage, totalPage) {
         }
       } else {
         const newMurkup = renderMarkupSearch(watchedListToRender);
-        LibPaginationList.innerHTML = '';
+        paginationList.innerHTML = '';
         apiservice.page = 1;
         curentPageToRender = 1;
         libraryData.innerHTML = `<ul class="library__list js-library-list">${newMurkup}</ul>`;
@@ -109,14 +91,10 @@ export function libraryListRender(curentPage, totalPage) {
   }
 }
 
-// ..........................................................
-
 function librPagination(curentPageToRender, totalPage) {
-  // console.log('librPagination: ');
   totalPages = totalPage;
 
   let murkup = '';
-
   let beforeTwoPage = curentPageToRender - 2;
   let beforePage = curentPageToRender - 1;
   let afterPage = curentPageToRender + 1;
@@ -158,37 +136,17 @@ function librPagination(curentPageToRender, totalPage) {
     murkup += `<li class="pagination__item pagination__item_arrows">►</li>`;
   }
 
-  LibPaginationList.innerHTML = murkup;
-  // window.scrollBy(0, -10000);
-  // window.scrollBy(0, -window.pageYOffset + 270);
+  paginationList.innerHTML = murkup;
 }
 
-// const clickToSckroll = document.querySelector('.pagination__item');
-// clickToSckroll.addEventListener('click', up);
-
-// document.getElementById(IDelemen).onclick = up();
-
-// {/* <a href="#" onclick="return up()">наверх</a> */}
-
-//////////////////плавна прокрутка
-
-// ..........................................................
-
-export function onLibrPaginationClick(e) {
+function onLibrPaginationClick(e) {
   if (e.target.tagName !== 'LI' || e.target.textContent === '...') {
     return;
   }
-  // if (e.target.textContent === '...') {
-  //   return;
-  // }
-  // console.log('e.target.textContent: ', e.target.textContent);
 
   if (e.target.textContent === '►') {
     curentPageToRender += 1;
-    // console.log('Перемальовка curentPageToRender: ', curentPageToRender);
-    // apiservice.page = curentPageToRender;
     apiservice.increamentPage();
-    // console.log('Перемальовка1 apiservice.page: ', apiservice.page);
     libraryListRender(curentPageToRender, totalPages);
     window.scrollTo(0, 230);
     return;
@@ -196,9 +154,7 @@ export function onLibrPaginationClick(e) {
 
   if (e.target.textContent === '◄') {
     curentPageToRender -= 1;
-    // apiservice.page = curentPageToRender;
     apiservice.decrementPage();
-    // console.log('Перемальовка2 apiservice.page: ', apiservice.page);
     libraryListRender(curentPageToRender, totalPages);
     window.scrollTo(0, 230);
     return;
@@ -207,8 +163,9 @@ export function onLibrPaginationClick(e) {
   if (true) {
     curentPageToRender = Number(e.target.textContent);
     apiservice.page = curentPageToRender;
-    // console.log('Перемальовка3 apiservice.page: ', apiservice.page);
     libraryListRender(curentPageToRender, totalPages);
     window.scrollTo(0, 230);
   }
 }
+
+export { libraryListRender, onLibrPaginationClick };

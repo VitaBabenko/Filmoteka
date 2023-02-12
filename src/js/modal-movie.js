@@ -1,19 +1,10 @@
-import { clicksMovie } from './refs';
-import { openModalMovie } from './refs';
-import { closeModalMovieBtn } from './refs';
+import { modalGallery, openModalMovie, closeModalMovieBtn } from './refs';
 import { renderMarkupModal } from './markupModal';
-import { modalGallery } from './refs';
 import { cleanHtmlTrailer } from './trailer';
-
-clicksMovie.addEventListener('click', oneToggle);
-closeModalMovieBtn.addEventListener('click', closeBtn);
-openModalMovie.addEventListener('click', clickBackdropCloseModal);
-
-modalGallery.addEventListener('click', onBtnBack);
 
 let arrId;
 
-export function oneToggle(evt) {
+function oneToggle(evt) {
   if (!evt.target.closest('.movie__item')) {
     return;
   }
@@ -54,13 +45,13 @@ export function oneToggle(evt) {
   }
 }
 
-export function clickBackdropCloseModal(e) {
+function clickBackdropCloseModal(e) {
   if (e.target === e.currentTarget) {
     modalClose();
   }
 }
 
-export function keyPressEscCloseMovieModal(evt) {
+function keyPressEscCloseMovieModal(evt) {
   const ESC_KEY_CODE = `Escape`;
 
   if (evt.code === ESC_KEY_CODE) {
@@ -68,7 +59,7 @@ export function keyPressEscCloseMovieModal(evt) {
   }
 }
 
-export function closeBtn() {
+function closeBtn() {
   modalClose();
 }
 
@@ -83,7 +74,7 @@ function modalClose() {
   openModalMovie.classList.add('is-hidden');
 }
 
-export function cleanHtml() {
+function cleanHtml() {
   modalGallery.innerHTML = '';
 }
 
@@ -100,3 +91,5 @@ async function onBtnBack(evt) {
     console.log(err);
   }
 }
+
+export { oneToggle, clickBackdropCloseModal, keyPressEscCloseMovieModal, closeBtn, cleanHtml, onBtnBack };

@@ -1,15 +1,11 @@
-import apiservice from './apiService';
+import { apiservice } from './apiService';
 import { btnWatched, btnQueue, guard } from './refs';
 import { libraryListRender } from './libraryMarkup';
 import { observer } from './buttonTop';
 
-btnWatched.addEventListener('click', onBtnWatchedClick);
-btnQueue.addEventListener('click', onBtnQueueClick);
-
 onBtnWatchedClick();
 
-export function onBtnWatchedClick() {
-  // paginationList.innerHTML = '';
+function onBtnWatchedClick() {
   apiservice.resetPage();
   btnWatched.classList.add('btnIsActive');
   btnQueue.classList.remove('btnIsActive');
@@ -19,7 +15,6 @@ export function onBtnWatchedClick() {
 }
 
 function onBtnQueueClick() {
-  // paginationList.innerHTML = '';
   apiservice.resetPage();
   btnWatched.classList.remove('btnIsActive');
   btnQueue.classList.add('btnIsActive');
@@ -27,3 +22,5 @@ function onBtnQueueClick() {
   libraryListRender();
    observer.observe(guard);
 }
+
+export { onBtnWatchedClick, onBtnQueueClick };

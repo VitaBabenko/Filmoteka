@@ -1,17 +1,18 @@
-import { findGenres } from './findGenres';
-import { getYear } from './getYear';
-
-import { findGenres } from './findGenres';
 import { movieContainer } from './refs';
-
-import { findGenres, isEmptyGanres, isMoreThenTwoGanres } from './findGenres';
+import { findGenres, isEmptyGenres, isMoreThenTwoGenres } from './findGenres';
 import noPoster from '../images/no-poster.jpg';
 
-// const gallery = document.querySelector('.js-movies-list');
 const IMG_URL = 'https://image.tmdb.org/t/p/w500/';
 
-export function renderMarkupSearch(movies) {
-  // console.log('movies: ', movies);
+function getYear(date) {
+  if (!date) {
+    return 'no data';
+  }
+  const dateRelease = new Date(date);
+  return dateRelease.getFullYear();
+}
+
+function renderMarkupSearch(movies) {
   const markup = movies
     .map(movie => {
       const { genre_ids } = movie;
@@ -22,13 +23,11 @@ export function renderMarkupSearch(movies) {
       let finalGenres = [];
       try {
         const parseGenres = JSON.parse(localStorage.getItem('genres'));
-        // console.log('parseGenresеееееееееееееееееееее: ', parseGenres);
         const genersLocalStore = parseGenres.data.genres;
-        // finalGenres = [];
 
         findGenres(genre_ids, genersLocalStore, finalGenres);
-        isMoreThenTwoGanres(finalGenres);
-        isEmptyGanres(finalGenres);
+        isMoreThenTwoGenres(finalGenres);
+        isEmptyGenres(finalGenres);
       } catch (error) {
         console.log(error.message);
       }
@@ -38,8 +37,6 @@ export function renderMarkupSearch(movies) {
       <div class="card-wrapper"><img class="card_img" loading="lazy" src="${imgUrl}" alt="${
         movie.original_title
       }"></div>
-      
-      
                 <h3 class="card_title">${movie.title}</h3>
                 <div class="card_descr">
                   <p class="card_genres">${finalGenres.join(
@@ -54,6 +51,8 @@ export function renderMarkupSearch(movies) {
   return markup;
 }
 
-export function cleanHtml() {
+function cleanHtml() {
   movieContainer.innerHTML = '';
 }
+
+export { renderMarkupSearch, cleanHtml };

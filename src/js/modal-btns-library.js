@@ -1,10 +1,6 @@
-import { openModalMovie } from './refs';
-
 import { libraryListRender } from './libraryMarkup';
 
-openModalMovie.addEventListener('click', onClickModal);
-
-export function onClickModal(e) {
+function onClickModal(e) {
   const refs = {
     watched: document.querySelector('.btn_modal_watched'),
     queue: document.querySelector('.btn_modal_queued'),
@@ -122,7 +118,6 @@ export function onClickModal(e) {
           movie => movie.id == currentId
         );
         sessionStorage.setItem('copyFilm', JSON.stringify(copyFilm));
-        // console.log('888', sessionStorage.getItem('copyFilm'));
         /////////////////////////////////////////////////////////////////////////////////
 
         const newwatchedFilms = JSON.parse(queuedFilms).filter(
@@ -140,3 +135,5 @@ export function onClickModal(e) {
     }
   }
 }
+
+export { onClickModal };
